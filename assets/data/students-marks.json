@@ -1,0 +1,152 @@
+[
+  {
+    "id": 0,
+    "name": "Akash",
+    "english": 24,
+    "science": 26,
+    "algebra": 48,
+    "geometry": 33,
+    "history": 40,
+    "geography": 35
+  },
+  {
+    "id": 1,
+    "name": "Pradeep",
+    "english": 48,
+    "science": 32,
+    "algebra": 24,
+    "geometry": 36,
+    "history": 36,
+    "geography": 28
+  },
+  {
+    "id": 2,
+    "name": "Sahil",
+    "english": 49,
+    "science": 29,
+    "algebra": 44,
+    "geometry": 47,
+    "history": 43,
+    "geography": 35
+  },
+  {
+    "id": 3,
+    "name": "Sakshi",
+    "english": 43,
+    "science": 27,
+    "algebra": 22,
+    "geometry": 34,
+    "history": 23,
+    "geography": 33
+  },
+  {
+    "id": 4,
+    "name": "Darshana",
+    "english": 25,
+    "science": 42,
+    "algebra": 27,
+    "geometry": 23,
+    "history": 31,
+    "geography": 27
+  },
+  {
+    "id": 5,
+    "name": "Zubin",
+    "english": 47,
+    "science": 36,
+    "algebra": 33,
+    "geometry": 44,
+    "history": 49,
+    "geography": 23
+  },
+  {
+    "id": 6,
+    "name": "Sushant",
+    "english": 29,
+    "science": 47,
+    "algebra": 35,
+    "geometry": 33,
+    "history": 32,
+    "geography": 21
+  },
+  {
+    "id": 7,
+    "name": "Ajay",
+    "english": 41,
+    "science": 31,
+    "algebra": 31,
+    "geometry": 34,
+    "history": 27,
+    "geography": 23
+  },
+  {
+    "id": 8,
+    "name": "Nirmal",
+    "english": 50,
+    "science": 20,
+    "algebra": 31,
+    "geometry": 21,
+    "history": 34,
+    "geography": 35
+  },
+  {
+    "id": 9,
+    "name": "Sajeev",
+    "english": 35,
+    "science": 39,
+    "algebra": 26,
+    "geometry": 43,
+    "history": 43,
+    "geography": 37
+  },
+  {
+    "id": 10,
+    "name": "Judie",
+    "english": 50,
+    "science": 39,
+    "algebra": 22,
+    "geometry": 33,
+    "history": 33,
+    "geography": 21
+  },
+  {
+    "id": 11,
+    "name": "Bhagyashree",
+    "english": 36,
+    "science": 42,
+    "algebra": 48,
+    "geometry": 21,
+    "history": 24,
+    "geography": 30
+  },
+  {
+    "id": 12,
+    "name": "Abhijeet",
+    "english": 22,
+    "science": 46,
+    "algebra": 41,
+    "geometry": 34,
+    "history": 30,
+    "geography": 49
+  },
+  {
+    "id": 13,
+    "name": "Rashmi",
+    "english": 38,
+    "science": 29,
+    "algebra": 49,
+    "geometry": 49,
+    "history": 31,
+    "geography": 32
+  },
+  {
+    "id": 14,
+    "name": "Pinki",
+    "english": 33,
+    "science": 46,
+    "algebra": 21,
+    "geometry": 40,
+    "history": 39,
+    "geography": 44
+  }
+]

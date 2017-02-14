@@ -1,0 +1,16 @@
+[
+	{
+		"std" :"F Y I T",
+		"div" : "A",
+		"title" : "Internet Technologies",
+		"note" : "2014 paper has to be solved for assignment 1",
+		"teacher" : "Prachi Desai"
+	},
+	{
+		"std" :"F Y I T",
+		"div" : "A",
+		"title" : "Embedded Systems",
+		"note" : "2014 paper has to be solved for assignment 1",
+		"teacher" : "Arun Dalvi"
+	}
+]

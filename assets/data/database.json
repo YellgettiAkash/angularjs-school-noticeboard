@@ -1,0 +1,70 @@
+{
+  "course": [
+    {
+      "id": "IT",
+      "name": "Information Technology"
+    },
+    {
+      "id": "CS",
+      "name": "Computer Science"
+    },
+    {
+      "id": "BMM",
+      "name": "Bachelor of Mass Media"
+    },
+    {
+      "id": "BMS",
+      "name": "Bachelor of Management Studies"
+    },
+    {
+      "id": "BAF",
+      "name": "Bachelors in Accounting and Finance"
+    }
+  ],
+  "div": [
+    "A",
+    "B",
+    "C"
+  ],
+  "std": [
+    {
+      "id": "FY",
+      "name": "First Year"
+    },
+    {
+      "id": "SY",
+      "name": "Second Year"
+    },
+    {
+      "id": "TY",
+      "name": "Third Year"
+    }
+  ],
+  "teachers": [
+    {
+      "id": "1",
+      "name": "Akash",
+      "class": [
+        "CS",
+        "IT"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Pradeep",
+      "class": [
+        "CS",
+        "BAF"
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Sahil",
+      "class": [
+        "CS",
+        "BMM",
+        "BMS"
+      ]
+    }
+  ]
+}

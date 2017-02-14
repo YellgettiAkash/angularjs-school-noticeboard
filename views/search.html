@@ -1,0 +1,157 @@
+<div class="navbar navbar-default navbar-fixed-top">
+   <div class="container">
+      <div class="navbar-header"><a class="navbar-brand" >School Notice Board</a>
+         <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         </a>
+      </div>
+      <div class="navbar-collapse collapse">
+         <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+               <a class="dropdown-toggle" data-toggle="dropdown" >Menu<span class="caret"></span></a>
+               <ul class="dropdown-menu">
+                  <li><a ui-sref="home">Home</a></li>
+                  <li><a ui-sref="search">Search Student</a></li>
+                  <li><a ui-sref="addStudent">Add Student</a></li>
+               </ul>
+            </li>
+         </ul>
+      </div>
+   </div>
+</div>
+<div class="container">
+   <div class="col-sm-12">
+   <div class="panel panel-default" >
+      <div class="panel-heading"> Marks Form </div>
+      <div class="panel-body"> 
+
+      
+         <div class="col-sm-4">
+            <div class="form-group">
+               <label >Full Name:</label>
+               <input type="text" class="form-control" ng-model="marks.name"  placeholder="First Name">
+            </div>
+         </div>
+         <div class="col-sm-4">
+            <div class="form-group">
+               <label >Date of Birth:</label>
+               <input type="date" class="form-control" ng-model="marks.dob"  placeholder="First Name">
+            </div>
+         </div>
+         <div class="col-sm-4">
+            <div class="form-group">
+               <label >Age:</label>
+               <input type="text" class="form-control" ng-model="marks.age"  placeholder="First Name">
+            </div>
+         </div>
+         <div class="col-sm-2">
+            <div class="form-group">
+               <label >English:</label>
+               <input type="text" class="form-control"  ng-model="marks.english" >
+            </div>
+         </div>
+        
+         <div class="col-sm-2">
+            <div class="form-group">
+               <label >Science:</label>
+               <input type="text" class="form-control"  ng-model="marks.science" >
+            </div>
+         </div>
+         <div class="col-sm-2">
+            <div class="form-group">
+               <label >History:</label>
+               <input type="text" class="form-control" ng-model="marks.history">
+            </div>
+         </div>
+         <div class="col-sm-2">
+            <div class="form-group">
+               <label >Geography:</label>
+               <input type="text" class="form-control" ng-model="marks.geography">
+            </div>
+         </div>
+          <div class="col-sm-2">
+            <div class="form-group">
+               <label >Algebra:</label>
+               <input type="text" class="form-control"  ng-model="marks.algebra" >
+            </div>
+         </div>
+         <div class="col-sm-2">
+            <div class="form-group">
+               <label >Geometry:</label>
+               <input type="text" class="form-control"  ng-model="marks.geometry" >
+            </div>
+         </div>
+       </div>
+       <div class="panel-footer">
+       <div class="row">
+          <div class="col-sm-12">
+               
+          <div class="pull-right">
+             <button class="btn btn-info " ng-click="save(marks)" >Save</button>
+          </div>
+          </div>
+       </div>
+          
+       </div>
+   </div>
+
+
+      
+   </div>
+   <div class="col-sm-12">
+         <div class="panel panel-default" >
+      <div class="panel-body"> 
+
+      <table class="table table-bordered table-striped">
+         <thead>
+            <tr>
+               <th>Edit</th>
+               <th>Delete</th>
+               <th>Name</th>
+               <th>English</th>
+               <th>Science</th>
+               <th>History</th>
+               <th>Geography</th>
+               <th>Algebra</th>
+               <th>Geometry</th>
+            </tr>
+         </thead>
+         <tbody>
+         <tr>
+               <th></th>
+               <th></th>
+               <th><input type="text" class="form-control" ng-model="search.name" ></th>
+               <th><input type="text" class="form-control" ng-model="search.english" ></th>
+               <th><input type="text" class="form-control" ng-model="search.science" ></th>
+               <th><input type="text" class="form-control" ng-model="search.history" ></th>
+               <th><input type="text" class="form-control" ng-model="search.geography" ></th>
+               <th><input type="text" class="form-control" ng-model="search.algebra" ></th>
+               <th><input type="text" class="form-control" ng-model="search.geometry" ></th>
+         </tr>
+            <tr ng-repeat="(key,student) in Students |  filter:search ">
+               <td>
+                  <button class="btn btn-warning" ng-click="edit(student.id)">
+                  <span class="glyphicon glyphicon-pencil"></span>  Edit
+                  </button>
+               </td>
+               <td>
+                  <button class="btn btn-danger" ng-click="delete(student.id)">
+                  <span class="glyphicon glyphicon-remove"></span>
+                  </button>
+               </td>
+               <td>{{ student.name }}</td>
+               <td>{{ student.english | customPassFailFilter }}</td>
+               <td>{{ student.science | customPassFailFilter }}</td>
+               <td>{{ student.history | customPassFailFilter }}</td>
+               <td>{{ student.geography | customPassFailFilter }}</td>
+               <td>{{ student.algebra | customPassFailFilter }}</td>
+               <td>{{ student.geometry | customPassFailFilter }}</td>
+               
+            </tr>
+         </tbody>
+      </table>
+      </div>
+   </div>
+</div>
