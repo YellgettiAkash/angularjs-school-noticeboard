@@ -6,11 +6,19 @@ app.config(routeConfig);
 //Factory
 app.factory("HttpFactory",HttpFactory);
 
+app.service("LocalStorageService",LocalStorageService);
+
+
+
 //Service
-app.factory("AuthService",AuthService);
+app.service("AuthService",AuthService);
 
 //Login Controllers 
-app.controller('LoginCtrl', ['$scope','$state','$location','HttpFactory','SessionService', LoginCtrl]);
+app.controller('LoginCtrl', ['$scope','$state','$location','HttpFactory','LocalStorageService', LoginCtrl]);
+
+//Login Controllers 
+app.controller('LogoutCtrl', ['$scope','$state','$location','HttpFactory','LocalStorageService', LogoutCtrl]);
+
 
 //Home Controllers 
 app.controller('HomeCtrl', ['$scope','$state','HttpFactory', HomeCtrl]);
@@ -22,35 +30,40 @@ app.controller('SearchCtrl', ['$scope','$state','HttpFactory', SearchCtrl]);
 app.filter('customPassFailFilter',['decoration',customPassFailFilter]).value('decoration',{symbol : '*'});
 
 
-//init factory
-app.factory('SessionService', ['$http', function($http){ // call a sessionService
-    return{
-        set:function(key,value){ // set data using js
-            return sessionStorage.setItem(key,value); //return key with value
-        },
-        get:function(key){ // get data using js
-            return sessionStorage.getItem(key); //return key
-        },
-        destroy:function(key){ // destroy data using js
-            $http.post('data/destroy_session.php'); //send server side request
-            return sessionStorage.removeItem(key); //return data (key)
-        }
-    };
-}])
-
-
-app.run(["$rootScope", "settings", "$state", "$window", "AuthService", function($rootScope, settings, $state, $window, AuthService) {
-    $rootScope.$state = $state; // state to be accessed from view
-    $rootScope.$settings = settings; // state to be accessed from view
-
+app.run(["$rootScope", "$state", "$window", "AuthService", function($rootScope, $state, $window, AuthService) {
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
-        console.log('')
-        // if (toState.data.external) {
-        //     event.preventDefault();
-        //     return $window.open(toState.url, '_self');
-        // }
-        // if (toState.data.restrict && !AuthService.isUserLoggedIn()) {
-        //     $state.go('login');
-        // }
+        // console.log(toState.name)
+        var isUserLoggedIn =  AuthService.isUserLoggedIn();
+        console.log(toState.name+'  '+isUserLoggedIn);
+         
+        if (toState.name == 'login' && !isUserLoggedIn) {
+            return $window.open('#'+toState.url, '_self');
+        }
+        if (toState.name == 'login' && isUserLoggedIn && toState.name != 'login' && isUserLoggedIn) {
+            $state.go(toState.name);
+        }
+
+        if (!isUserLoggedIn) {
+            console.log('login-1');
+            $state.go('login');
+        }
+
+
     });
 }]);
+
+
+// MetronicApp.run(["$rootScope", "settings", "$state", "$window", "AuthService", function($rootScope, settings, $state, $window, AuthService) {
+//     $rootScope.$state = $state; // state to be accessed from view
+//     $rootScope.$settings = settings; // state to be accessed from view
+
+//     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+//         if (toState.data.external) {
+//             event.preventDefault();
+//             return $window.open(toState.url, '_self');
+//         }
+//         if (toState.data.restrict && !AuthService.isUserLoggedIn()) {
+//             $state.go('login');
+//         }
+//     });
+// }]);

@@ -3,6 +3,6 @@ function HomeCtrl($scope,$state,HttpFactory) {
 	HttpFactory.get('assets/data/notice.json',function(data){
 		var result = data.data;
 		$scope.notices = result;
-		console.log(data);
+		// console.log(data);
 	})
 }
