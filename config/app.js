@@ -30,40 +30,27 @@ app.controller('SearchCtrl', ['$scope','$state','HttpFactory', SearchCtrl]);
 app.filter('customPassFailFilter',['decoration',customPassFailFilter]).value('decoration',{symbol : '*'});
 
 
+angular.isUndefinedOrNull = function(val) {
+    return angular.isUndefined(val) || val === null 
+}
+
 app.run(["$rootScope", "$state", "$window", "AuthService", function($rootScope, $state, $window, AuthService) {
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
         // console.log(toState.name)
         var isUserLoggedIn =  AuthService.isUserLoggedIn();
-        console.log(toState.name+'  '+isUserLoggedIn);
-         
-        if (toState.name == 'login' && !isUserLoggedIn) {
+        var condition = fromState.name !== null;
+        console.log( condition+'  '+fromState.name+' '+ toState.name+'  '+isUserLoggedIn);
+        if(condition && toState.name != 'login' && !isUserLoggedIn){
+           $state.go('login');
+        }
+        if(condition && toState.name == 'login' && isUserLoggedIn){
+            return $window.open('#/home', '_self');
+        }
+        if(condition  && toState.name == 'login' && !isUserLoggedIn){
             return $window.open('#'+toState.url, '_self');
-        }
-        if (toState.name == 'login' && isUserLoggedIn && toState.name != 'login' && isUserLoggedIn) {
-            $state.go(toState.name);
-        }
-
-        if (!isUserLoggedIn) {
-            console.log('login-1');
-            $state.go('login');
         }
 
 
     });
 }]);
 
-
-// MetronicApp.run(["$rootScope", "settings", "$state", "$window", "AuthService", function($rootScope, settings, $state, $window, AuthService) {
-//     $rootScope.$state = $state; // state to be accessed from view
-//     $rootScope.$settings = settings; // state to be accessed from view
-
-//     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
-//         if (toState.data.external) {
-//             event.preventDefault();
-//             return $window.open(toState.url, '_self');
-//         }
-//         if (toState.data.restrict && !AuthService.isUserLoggedIn()) {
-//             $state.go('login');
-//         }
-//     });
-// }]);
