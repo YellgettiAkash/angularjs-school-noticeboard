@@ -1,5 +1,4 @@
-
-function HttpFactory($http){
+function httpFactory($http){
    
     var get = function (url,callback){
         $http({

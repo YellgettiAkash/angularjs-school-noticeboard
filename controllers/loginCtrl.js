@@ -1,14 +1,14 @@
-function LoginCtrl($scope,$state,$location,HttpFactory,LocalStorageService) {
-	
-
+var app = angular.module('myApp');
+app.controller('loginCtrl', ['$scope','$state','$location','httpFactory','localStorageService', loginCtrl]);
+function loginCtrl($scope,$state,$location,httpFactory,localStorageService) {
 
 	$scope.login = function (credentials) {
 		credentials.button = "login";
-		HttpFactory.post('assets/php/login.php',credentials,function (data) {
+		httpFactory.post('assets/php/login.php',credentials,function (data) {
 			var result =data.data; // get only session id and set
                 if(result.status == 1){
                     //console.log("get session id = "+ uid);
-                    LocalStorageService.set('user_demo',result); //set uid in apps
+                    localStorageService.set('user_demo',result); //set uid in apps
                     $location.path('/home'); // with redirect Home page 
                 }          
                 else  {
@@ -16,6 +16,5 @@ function LoginCtrl($scope,$state,$location,HttpFactory,LocalStorageService) {
                     $location.path('/login');// with redirect Home page 
                 }            
 		})
-
 	}
 }

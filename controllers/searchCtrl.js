@@ -1,8 +1,11 @@
-function SearchCtrl($scope,$state,HttpFactory) {
-	console.log('SearchCtrl');
+var app = angular.module('myApp');
+app.controller('searchCtrl', ['$scope','$state','httpFactory', searchCtrl]);
+function searchCtrl($scope,$state,httpFactory) {
 	$scope.Students = [];
+	
 	$scope.marks={};
-	HttpFactory.get('assets/data/students-marks.json',function(data){
+
+	httpFactory.get('assets/data/students-marks.json',function(data){
 		var result = data.data;
 		$scope.Students = result;
 		// console.log(data);
